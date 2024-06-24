@@ -1,0 +1,76 @@
+{% extends 'manager/base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-text">
+                    <h2>Request</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <table class="table table-bordered table-striped table-hover" style="background-color: #002633;margin-top:50px">
+    <h4 style="text-align:center;">
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</h4>
+                                      <th class="success" style="color: white;">User Name</th>
+
+                                 <th class="success" style="color: white;">Email</th>
+                                  <th class="success" style="color: white;">Address</th>
+                                  <th class="success" style="color: white;">Phone Number</th>
+
+                                  {% comment %} <th class="success" style="color: white;">License Number</th> {% endcomment %}
+                              <th class="success" style="color: white;">Add my team</th>
+                                                              <th class="success" style="color: white;">Reject</th>
+
+     {% for i in shop  %}
+                                <tr style="background-color:white;width: 700px;">
+
+                                    <td>{{ i.user.user.first_name }}</td>
+
+                                    <td>{{ i.user.user.email }}</td>
+                                    <td>{{ i.user.address }}</td>
+
+                                    <td>{{ i.user.phone_number }}</td>
+
+                                    <td><button style="background-color:limegreen"><a href="add_my_team?id1={{i.id}}&&id5={{i.user_id}}" class=" btn btn-success" >Add My Team</a></button>
+                                        <td><button style="background-color:limegreen"><a href="{% url 'reject' i.id %}" class=" btn btn-success" >Reject</a></button>
+
+                                    </tr>
+
+
+              {% endfor %}
+
+
+
+                            </table>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+  {% endblock %}

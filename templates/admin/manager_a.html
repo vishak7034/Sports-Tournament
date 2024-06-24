@@ -1,0 +1,74 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-text">
+                    <h2>Manager Varification</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <table class="table table-bordered table-striped table-hover" style="background-color: #002633;margin-top:50px">
+
+
+                                      <th class="success" style="color: white;">Manager Name</th>
+
+                                 <th class="success" style="color: white;">Email</th>
+                                  <th class="success" style="color: white;">Address</th>
+                                  <th class="success" style="color: white;">Phone Number</th>
+
+                                  {% comment %} <th class="success" style="color: white;">License Number</th> {% endcomment %}
+                              <th class="success" style="color: white;">Action</th>
+     {% for i in shop  %}
+                                <tr style="background-color:white;width: 700px;">
+
+                                    <td>{{ i.user.first_name }}</td>
+
+                                    <td>{{ i.user.email }}</td>
+                                    <td>{{ i.address }}</td>
+
+                                    <td>{{ i.phone_number }}</td>
+                                    {% comment %} <td>{{ i.LicenseNumber }}</td> {% endcomment %}
+
+                                    <td><button style="background-color:limegreen"><a href="{% url 'approve' i.user_id %}" class=" btn btn-success" >Approve</a></button>
+                                    <button style="background-color:red"><a href="{% url 'reject' i.user_id %}" class=" btn btn-danger" >Reject</a></button></td>
+                                </tr>
+
+
+              {% endfor %}
+
+
+
+                            </table>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+  {% endblock %}

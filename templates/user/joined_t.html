@@ -1,0 +1,66 @@
+{% extends 'user/user_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-text">
+                    <h2>Tournament</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <table class="table table-bordered table-striped table-hover" style="background-color: #002633;margin-top:50px">
+
+
+                                      <th class="success" style="color: white;">Tournament Name</th>
+
+                                 <th class="success" style="color: white;">Location</th>
+                                  <th class="success" style="color: white;">Date</th>
+                                  <th class="success" style="color: white;">Time</th>
+
+
+                                  {% comment %} <th class="success" style="color: white;">License Number</th> {% endcomment %}
+     {% for i in bb  %}
+                                <tr style="background-color:white;width: 700px;">
+
+                                    <td>{{ i.Tournament.Eventname }}</td>
+
+                                    <td>{{ i.Tournament.location }}</td>
+                                    <td>{{ i.Tournament.date }}</td>
+                                    <td>{{ i.Tournament.time }}</td>
+
+
+                                 
+                                </tr>
+
+
+              {% endfor %}
+
+
+
+                            </table>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+  {% endblock %}

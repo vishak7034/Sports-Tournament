@@ -1,0 +1,76 @@
+{% extends 'manager/base.html' %}
+{% load static %}
+{% block content %}
+{% if messages %}
+<script>
+    alert("{{ message }}")
+    </script>
+{% endif %}
+
+
+<section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="bs-text">
+                    <h2>Tournament</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <table class="table table-bordered table-striped table-hover" style="background-color: #002633;margin-top:50px">
+
+
+                                      <th class="success" style="color: white;">Tournament Name</th>
+
+                                 <th class="success" style="color: white;">Location</th>
+                                  <th class="success" style="color: white;">Date</th>
+
+                                  <th class="success" style="color: white;">Payment</th>
+
+                                  {% comment %} <th class="success" style="color: white;">License Number</th> {% endcomment %}
+     {% for i in set  %}
+                                <tr style="background-color:white;width: 700px;">
+
+                                    <td>{{ i.Tournament.Eventname }}</td>
+
+                                    <td>{{ i.Tournament.location }}</td>
+                                    <td>{{ i.Tournament.date }}</td>
+                                    
+                                    {% if i.payment == 'paid' %}
+
+                                   
+                                    <td>{{ i.payment }}</td>
+
+                                        {% else %}
+                                    <td><button style="background-color:limegreen"><a href="payment?id={{i.id}}" class=" btn btn-success" >Payment</a></button>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+
+
+              {% endfor %}
+
+
+
+                            </table>
+      <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+     <br>
+
+  {% endblock %}

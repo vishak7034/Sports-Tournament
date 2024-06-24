@@ -1,0 +1,78 @@
+{% extends "user/user_base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+    <!-- Header End -->
+
+    <!-- Map Section Begin -->
+    
+    <!-- Map Section End -->
+
+    <!-- Contact Section Begin -->
+
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-text">
+                        <h2>Schedule</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h2>Schedule Team</h2>
+                        <form action="" method="post">
+                           {% csrf_token %}
+                           <div class="group-in">
+                            <select style="width: 100%;
+                            padding: 12px 20px;
+                            margin: 8px 0;
+                            display: inline-block;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            box-sizing: border-box;" name="team" id="prisonerNumber" required>
+                                                <option value="">Select Team </option>
+                                                {% for i in obj %}
+                                                                       <option value="{{i.user.user.first_name}}">{{i.user.user.first_name}}</option>
+                                                                    
+                          {% endfor %}
+                          
+                                                             </select>
+                        </div>
+                                <input type="hidden" id="email" value={{name}} name="team1">
+                                <input type="hidden" id="email" value={{tour}} name="tour">
+
+                            <div class="group-in">
+                                <label for="email">Date</label>
+                                <input type="date" id="email" name="date">
+                            </div>
+                
+                            <div class="group-in">
+                                <label for="name">Time</label>
+                                <input type="time" id="name" name="time">
+                            </div>
+                            <button type="submit">submit</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer Section Begin -->
+    
+{% endblock  %}

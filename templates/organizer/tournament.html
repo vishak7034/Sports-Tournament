@@ -1,0 +1,82 @@
+{% extends "organizer/base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+    <!-- Header End -->
+
+    <!-- Map Section Begin -->
+    
+    <!-- Map Section End -->
+
+    <!-- Contact Section Begin -->
+
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-text">
+                        <h2>Add Sports</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        {% comment %} <h2>Location</h2> {% endcomment %}
+                        <form action="" method="post" enctype="multipart/form-data">
+                           {% csrf_token %}
+                            <div class="group-in">
+                            <label for="text">Sports Name</label>
+                            {{form.sports}}
+                           <div class="group-in">
+                            <label for="text">Event Name</label>
+                            {{form.Eventname}}
+                        </div>
+                        <div class="group-in">
+                            <label for="text"> Location</label>
+                            {{form.location}}
+                        </div>
+                     
+                        <div class="group-in">
+                            <label for="text">Date</label>
+                            {{form.date}}
+                        </div>
+                        <div class="group-in">
+                            <label for="text">Time</label>
+                            {{form.time}}
+                        </div>
+                        <div class="group-in">
+                            <label for="text">Image</label>
+                            {{form.image}}
+                        </div>
+                        <div class="group-in">
+                            <label for="text">Description</label>
+                            {{form.description}}
+                        </div>
+                        <div class="group-in">
+                            <label for="text">fee</label>
+                            {{form.fee}}
+                        </div>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer Section Begin -->
+    
+{% endblock  %}

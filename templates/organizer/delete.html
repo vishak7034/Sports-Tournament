@@ -1,0 +1,77 @@
+{% extends "organizer/base.html" %}
+{% load static %}
+{% block content %}
+{% load static %}
+<div class="hero hero-inner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mx-auto text-center">
+        <div class="intro-wrap">
+          <h1 class="mb-0">Delete</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="container-fluid">
+        <div class="container-fluid">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold mb-4">Delete Event/Tournament</h5>
+              <div class="card">
+                <div class="card-body">
+
+
+                    <form method="POST" enctype="multipart/form-data">
+
+                        {% csrf_token %} 
+                        <br><br>
+                        <div class="alert alert-danger" role="alert">
+                            Do you want to delete "{{ pro.Eventname }}"?
+                        </div>
+                        
+                        <p>
+                            <a href="{% url 'view_event' %}"> <-- Go back</a>
+                        </p>
+                
+                        <p>
+                    <button type="submit" class="btn btn-primary">Confirm</button>
+                  </form>
+                </div>
+              </div>
+              {% comment %} <h5 class="card-title fw-semibold mb-4">Disabled forms</h5>
+              <div class="card mb-0">
+                <div class="card-body">
+                  <form>
+                    <fieldset disabled>
+                      <legend>Disabled fieldset example</legend>
+                      <div class="mb-3">
+                        <label for="disabledTextInput" class="form-label">Disabled input</label>
+                        <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+                      </div>
+                      <div class="mb-3">
+                        <label for="disabledSelect" class="form-label">Disabled select menu</label>
+                        <select id="disabledSelect" class="form-select">
+                          <option>Disabled select</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox" id="disabledFieldsetCheck" disabled>
+                          <label class="form-check-label" for="disabledFieldsetCheck">
+                            Can't check this
+                          </label>
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </fieldset>
+                  </form>
+                </div>
+              </div>
+            </div> {% endcomment %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}

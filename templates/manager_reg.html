@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %} 
+
+{% if message %}
+<script>
+alert("{{ message }}")
+</script>
+{% endif %}
+
+    <!-- Header End -->
+
+    <!-- Map Section Begin -->
+    
+    <!-- Map Section End -->
+
+    <!-- Contact Section Begin -->
+
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb-bg.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="bs-text">
+                        <h2>Manager Registration</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="contact-form">
+                        <h2>Sign Up</h2>
+                        <form action="" method="post">
+                           {% csrf_token %}
+                           <div class="group-in">
+                            <label for="text">Name</label>
+                            <input type="text" id="email" name="name" required>
+                        </div>
+                            <div class="group-in">
+                                <label for="email">Email</label>
+                                <input type="text" id="email" name="email" required>
+                            </div>
+                            <div class="group-in">
+                                <label for="email">Phone Number</label>
+                                <input type="text" id="email" name="number" required>
+                            </div>
+                            <div class="group-in">
+                                <label for="email">Address</label>
+                                <textarea id="email" name="address" required></textarea>
+                            </div>
+                            <div class="group-in">
+                                <label for="name">Password</label>
+                                <input type="password" id="name" name="password" required>
+                            </div>
+                            <button type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+    <!-- Footer Section Begin -->
+    
+{% endblock  %}
